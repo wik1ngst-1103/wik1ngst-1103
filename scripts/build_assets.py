@@ -49,11 +49,11 @@ LOADOUT = [  # icons, label
 THEMES = {
     "dark": {
         "card": "#151B23", "border": "#2A313C", "text": "#E6EDF3", "muted": "#8D96A0",
-        "accent": "#E3B341", "slot": "#1B222C", "empty": "#262D38",
+        "accent": "#E3B341", "empty": "#262D38",
     },
     "light": {
         "card": "#F6F8FA", "border": "#D8DEE4", "text": "#1F2328", "muted": "#59636E",
-        "accent": "#9A6700", "slot": "#FFFFFF", "empty": "#E3E7EB",
+        "accent": "#9A6700", "empty": "#E3E7EB",
     },
 }
 

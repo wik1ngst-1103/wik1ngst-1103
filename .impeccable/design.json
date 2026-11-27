@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-27T09:47:22+00:00",
+  "title": "Design System: wik1ngst-1103",
+  "extensions": {
+    "colorMeta": {
+      "night-panel": {
+        "role": "neutral",
+        "displayName": "Night Panel",
+        "canonical": "oklch(22.0% 0.018 255.7)",
+        "tonalRamp": [
+          "#0A0B0E",
+          "#22252A",
+          "#3D424A",
+          "#5B626C",
+          "#7B838D",
+          "#9EA6B1",
+          "#C3CAD3",
+          "#EAEFF5"
+        ],
+        "usage": "Dark-theme card fill."
+      },
+      "night-hairline": {
+        "role": "neutral",
+        "displayName": "Night Hairline",
+        "canonical": "oklch(31.1% 0.022 259.4)",
+        "tonalRamp": [
+          "#090B0E",
+          "#21252B",
+          "#3C424C",
+          "#5A626E",
+          "#7B8390",
+          "#9DA6B3",
+          "#C3CAD5",
+          "#EAEFF7"
+        ],
+        "usage": "Dark-theme card stroke, divider and row rules."
+      },
+      "frost-text": {
+        "role": "neutral",
+        "displayName": "Frost Text",
+        "canonical": "oklch(94.3% 0.011 243.7)",
+        "tonalRamp": [
+          "#0A0B0D",
+          "#232528",
+          "#3E4347",
+          "#5C6267",
+          "#7D8389",
+          "#9FA6AC",
+          "#C4CACE",
+          "#EBEFF2"
+        ],
+        "usage": "Dark-theme primary text, icons, helmet body, snake."
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "oklch(66.9% 0.018 250.9)",
+        "tonalRamp": [
+          "#090B0E",
+          "#21252A",
+          "#3C434A",
+          "#5A626B",
+          "#7B838D",
+          "#9DA6B0",
+          "#C3CAD2",
+          "#EAEFF5"
+        ],
+        "usage": "Dark-theme keys, subheads, dates, visor band."
+      },
+      "lantern-amber": {
+        "role": "primary",
+        "displayName": "Lantern Amber",
+        "canonical": "oklch(79.0% 0.139 85.2)",
+        "tonalRamp": [
+          "#140900",
+          "#362000",
+          "#5D3A00",
+          "#845800",
+          "#A87A00",
+          "#CC9D23",
+          "#EAC472",
+          "#FFECB5"
+        ],
+        "usage": "Dark-theme sole accent: headings, cursors, horns, filled segments, snake ramp.",
+        "snakeRamp": [
+          "#161B22",
+          "#3A3220",
+          "#6B5A2A",
+          "#B08A2E",
+          "#E3B341"
+        ]
+      },
+      "night-empty-slot": {
+        "role": "neutral",
+        "displayName": "Night Empty Slot",
+        "canonical": "oklch(29.5% 0.022 259.4)",
+        "tonalRamp": [
+          "#090B0E",
+          "#21252B",
+          "#3C424C",
+          "#5A626E",
+          "#7A8390",
+          "#9DA6B3",
+          "#C2CAD5",
+          "#EAEFF7"
+        ],
+        "usage": "Dark-theme unfilled bar segments."
+      },
+      "paper-panel": {
+        "role": "neutral",
+        "displayName": "Paper Panel",
+        "canonical": "oklch(97.8% 0.003 247.9)",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#A3A5A7",
+          "#C8C9CB",
+          "#EDEEF0"
+        ],
+        "usage": "Light-theme card fill."
+      },
+      "paper-hairline": {
+        "role": "neutral",
+        "displayName": "Paper Hairline",
+        "canonical": "oklch(89.8% 0.010 247.9)",
+        "tonalRamp": [
+          "#0A0B0D",
+          "#232528",
+          "#3E4246",
+          "#5D6267",
+          "#7E8388",
+          "#A0A6AB",
+          "#C5CACE",
+          "#ECEFF2"
+        ],
+        "usage": "Light-theme card stroke, divider and row rules."
+      },
+      "ink-text": {
+        "role": "neutral",
+        "displayName": "Ink Text",
+        "canonical": "oklch(25.4% 0.011 254.0)",
+        "tonalRamp": [
+          "#0A0B0D",
+          "#232528",
+          "#3F4247",
+          "#5D6268",
+          "#7E8389",
+          "#A0A6AC",
+          "#C5C9CF",
+          "#ECEFF2"
+        ],
+        "usage": "Light-theme primary text, icons, helmet body, snake."
+      },
+      "pewter-muted": {
+        "role": "neutral",
+        "displayName": "Pewter Muted",
+        "canonical": "oklch(49.5% 0.022 250.8)",
+        "tonalRamp": [
+          "#090B0E",
+          "#21262B",
+          "#3B434B",
+          "#58626D",
+          "#79848F",
+          "#9BA6B2",
+          "#C1CAD4",
+          "#E9EFF6"
+        ],
+        "usage": "Light-theme keys, subheads, dates, visor band."
+      },
+      "bronze-amber": {
+        "role": "primary",
+        "displayName": "Bronze Amber",
+        "canonical": "oklch(55.4% 0.117 75.0)",
+        "tonalRamp": [
+          "#140800",
+          "#371F00",
+          "#5F3800",
+          "#875500",
+          "#AB7720",
+          "#D09A49",
+          "#EDC184",
+          "#FFE9C0"
+        ],
+        "usage": "Light-theme sole accent: headings, cursors, horns, filled segments, snake ramp.",
+        "snakeRamp": [
+          "#EBEEF1",
+          "#F2E3B8",
+          "#E3C26B",
+          "#BF8700",
+          "#9A6700"
+        ]
+      },
+      "paper-empty-slot": {
+        "role": "neutral",
+        "displayName": "Paper Empty Slot",
+        "canonical": "oklch(92.6% 0.007 247.9)",
+        "tonalRamp": [
+          "#0A0B0C",
+          "#242527",
+          "#404245",
+          "#5E6265",
+          "#7F8386",
+          "#A2A5A9",
+          "#C6C9CD",
+          "#ECEFF1"
+        ],
+        "usage": "Light-theme unfilled bar segments."
+      }
+    },
+    "typographyMeta": {
+      "handle": {
+        "displayName": "Handle",
+        "purpose": "WIK1NGST on the name plate only; cap 34 in SVG units, followed by the block cursor."
+      },
+      "headline": {
+        "displayName": "Section Heading",
+        "purpose": "Amber pixel section headings; cap 16, baseline 62 from card top."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Real name on the name plate; Barlow SemiBold cap 24."
+      },
+      "value": {
+        "displayName": "Value",
+        "purpose": "Row values, loadout labels, quest names, stat numbers; cap 19-20, right-aligned beside a key."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Stack line and stat row labels; Barlow Medium cap 17."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Languages, dates, descriptions, percentages; cap 16."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Muted tracked uppercase row keys, column subheads, NOW PLAYING legend; cap 17."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "cursor-blink",
+        "value": "opacity 1 → 0, 1.2s step-end infinite; none under prefers-reduced-motion: reduce",
+        "purpose": "Quest log now-playing cursor only. The name-plate cursor is static."
+      }
+    ],
+    "breakpoints": [],
+    "notes": [
+      "Sizes are in the 1000-unit SVG coordinate space; typography fontSize is the em equivalent of the cap height actually set (Press Start 2P cap 875/1000, Barlow cap 700/1000).",
+      "No responsive variants: cards scale with the README width (about 0.88x desktop, 0.36x at 390px).",
+      "Every card has a light and dark variant swapped via <picture> and prefers-color-scheme."
+    ]
+  },
+  "components": [
+    {
+      "name": "Section Card",
+      "kind": "card",
+      "refersTo": "card-dark",
+      "description": "Full-width neutral panel holding one section, amber pixel heading, hairline rows.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-heading\">CHARACTER</div><div class=\"ds-row\"><span class=\"ds-key\">CLASS</span><span class=\"ds-val\">Developer</span></div><div class=\"ds-row\"><span class=\"ds-key\">FAV WEAPON</span><span class=\"ds-val\">JavaScript</span></div></div>",
+      "css": ".ds-card{background:#151B23;border:1.5px solid #2A313C;border-radius:14px;padding:28px 40px;color:#E6EDF3;max-width:460px}.ds-heading{font-family:'Press Start 2P',monospace;font-weight:400;font-size:13px;letter-spacing:1px;color:#E3B341;margin-bottom:22px}.ds-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid #2A313C}.ds-row:last-child{border-bottom:none}.ds-key{font-family:Barlow,system-ui,sans-serif;font-weight:500;font-size:15px;letter-spacing:1px;color:#8D96A0}.ds-val{font-family:Barlow,system-ui,sans-serif;font-weight:600;font-size:18px}"
+    },
+    {
+      "name": "Section Card (light)",
+      "kind": "card",
+      "refersTo": "card-light",
+      "description": "The same card in the light theme; only role colours swap.",
+      "html": "<div class=\"ds-card-l\"><div class=\"ds-heading-l\">LOADOUT</div><div class=\"ds-row-l\"><span class=\"ds-key-l\">SPAWN</span><span class=\"ds-val-l\">11 . 03 . 2001</span></div><div class=\"ds-row-l\"><span class=\"ds-key-l\">SIDE QUESTS</span><span class=\"ds-val-l\">Math · English</span></div></div>",
+      "css": ".ds-card-l{background:#F6F8FA;border:1.5px solid #D8DEE4;border-radius:14px;padding:28px 40px;color:#1F2328;max-width:460px}.ds-heading-l{font-family:'Press Start 2P',monospace;font-weight:400;font-size:13px;letter-spacing:1px;color:#9A6700;margin-bottom:22px}.ds-row-l{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid #D8DEE4}.ds-row-l:last-child{border-bottom:none}.ds-key-l{font-family:Barlow,system-ui,sans-serif;font-weight:500;font-size:15px;letter-spacing:1px;color:#59636E}.ds-val-l{font-family:Barlow,system-ui,sans-serif;font-weight:600;font-size:18px}"
+    },
+    {
+      "name": "Name Plate",
+      "kind": "custom",
+      "refersTo": "card-dark",
+      "description": "Pixel handle with a static amber block cursor, real name and muted stack line.",
+      "html": "<div class=\"ds-plate\"><div class=\"ds-handle\">WIK1NGST<span class=\"ds-cursor\"></span></div><div class=\"ds-name\">Le Thanh Son</div><div class=\"ds-stack\">Developer · JavaScript, TypeScript, React, Node.js, Rust</div></div>",
+      "css": ".ds-plate{background:#151B23;border:1.5px solid #2A313C;border-radius:14px;padding:32px 40px;color:#E6EDF3}.ds-handle{font-family:'Press Start 2P',monospace;font-weight:400;font-size:30px;letter-spacing:2px;display:flex;align-items:flex-end;gap:12px}.ds-cursor{display:inline-block;width:16px;height:27px;background:#E3B341}.ds-name{font-family:Barlow,system-ui,sans-serif;font-weight:600;font-size:26px;margin-top:20px}.ds-stack{font-family:Barlow,system-ui,sans-serif;font-weight:500;font-size:17px;color:#8D96A0;margin-top:10px}"
+    },
+    {
+      "name": "Quest Row with Now-Playing Cursor",
+      "kind": "custom",
+      "refersTo": "block-cursor-dark",
+      "description": "The only animated element: a blinking amber cursor marking the most recent repository.",
+      "html": "<div class=\"ds-quests\"><div class=\"ds-q\"><span class=\"ds-qcur\"></span><span class=\"ds-qn\">plan-atlas</span><span class=\"ds-qd\">2026-11-27</span></div><div class=\"ds-q\"><span class=\"ds-qsp\"></span><span class=\"ds-qn\">cc-monitor</span><span class=\"ds-ql\">Rust</span><span class=\"ds-qd\">2026-11-27</span></div></div>",
+      "css": ".ds-quests{background:#151B23;border:1.5px solid #2A313C;border-radius:14px;padding:16px 40px;color:#E6EDF3}.ds-q{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #2A313C;font-family:Barlow,system-ui,sans-serif;}.ds-q:last-child{border-bottom:none}.ds-qcur,.ds-qsp{width:10px;height:17px;flex:none}.ds-qcur{background:#E3B341;animation:ds-blink 1.2s step-end infinite}.ds-qn{font-weight:600;font-size:18px;flex:1}.ds-ql,.ds-qd{font-weight:500;font-size:15px;color:#8D96A0}.ds-ql{width:120px}@keyframes ds-blink{50%{opacity:0}}@media (prefers-reduced-motion:reduce){.ds-qcur{animation:none}}"
+    },
+    {
+      "name": "Segmented Bar",
+      "kind": "custom",
+      "refersTo": "bar-segment-filled-dark",
+      "description": "Language share as twenty 2.5% segments, amber filled on empty-slot.",
+      "html": "<div class=\"ds-bar\"><span class=\"ds-bl\">Rust</span><span class=\"ds-segs\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"ds-bp\">29%</span></div>",
+      "css": ".ds-bar{display:flex;align-items:center;gap:14px;background:#151B23;padding:16px 24px;border-radius:14px;color:#E6EDF3;font-family:Barlow,system-ui,sans-serif;}.ds-bl{font-weight:600;font-size:15px;width:96px}.ds-segs{display:flex;gap:3px}.ds-segs i{width:7px;height:12px;border-radius:1px;background:#262D38}.ds-segs i.on{background:#E3B341}.ds-bp{font-weight:500;font-size:14px;color:#8D96A0;width:36px;text-align:right}"
+    },
+    {
+      "name": "Link Card",
+      "kind": "button",
+      "refersTo": "link-card-dark",
+      "description": "320x96 link tile: monochrome Simple Icon plus SemiBold label; three in a row.",
+      "html": "<a class=\"ds-link\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\"/></svg><span>Follow</span></a>",
+      "css": ".ds-link{display:inline-flex;align-items:center;gap:22px;width:280px;height:84px;padding:0 30px;box-sizing:border-box;background:#151B23;border:1.5px solid #2A313C;border-radius:14px;color:#E6EDF3;text-decoration:none;font-family:Barlow,system-ui,sans-serif;font-weight:600;font-size:20px}.ds-link:hover{border-color:#8D96A0}.ds-link:focus-visible{outline:2px solid #E3B341;outline-offset:2px}"
+    },
+    {
+      "name": "Pixel Helmet",
+      "kind": "custom",
+      "refersTo": "card-dark",
+      "description": "16x13 helmet sprite: amber horns, text-colour shell, muted visor band; the only illustration.",
+      "html": "<div class=\"ds-helmet\"><svg viewBox=\"0 0 16 13\" width=\"112\" height=\"91\" shape-rendering=\"crispEdges\" aria-hidden=\"true\"><g fill=\"#E3B341\"><rect x=\"0\" y=\"1\" width=\"1\" height=\"1\"/><rect x=\"15\" y=\"1\" width=\"1\" height=\"1\"/><rect x=\"0\" y=\"2\" width=\"2\" height=\"2\"/><rect x=\"14\" y=\"2\" width=\"2\" height=\"2\"/><rect x=\"1\" y=\"4\" width=\"2\" height=\"1\"/><rect x=\"13\" y=\"4\" width=\"2\" height=\"1\"/><rect x=\"1\" y=\"5\" width=\"3\" height=\"1\"/><rect x=\"13\" y=\"5\" width=\"2\" height=\"1\"/><rect x=\"2\" y=\"6\" width=\"1\" height=\"1\"/><rect x=\"13\" y=\"6\" width=\"1\" height=\"1\"/></g><g fill=\"#E6EDF3\"><rect x=\"7\" y=\"3\" width=\"2\" height=\"1\"/><rect x=\"5\" y=\"4\" width=\"6\" height=\"1\"/><rect x=\"4\" y=\"5\" width=\"9\" height=\"1\"/><rect x=\"3\" y=\"6\" width=\"10\" height=\"1\"/><rect x=\"3\" y=\"7\" width=\"10\" height=\"1\"/><rect x=\"2\" y=\"9\" width=\"3\" height=\"2\"/><rect x=\"7\" y=\"9\" width=\"2\" height=\"4\"/><rect x=\"11\" y=\"9\" width=\"3\" height=\"2\"/><rect x=\"2\" y=\"11\" width=\"2\" height=\"1\"/><rect x=\"12\" y=\"11\" width=\"2\" height=\"1\"/></g><rect x=\"2\" y=\"8\" width=\"12\" height=\"1\" fill=\"#8D96A0\"/></svg></div>",
+      "css": ".ds-helmet{display:inline-block;background:#151B23;border:1.5px solid #2A313C;border-radius:14px;padding:24px 32px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Character Screen",
+    "overview": "The profile is a game's character screen paused on a neutral panel: name plate, character sheet, loadout, quest log, player stats. Every card sits on GitHub's own surface tones so the page reads as part of GitHub rather than a widget pasted onto it, and the game identity comes from structure and three small devices (pixel headings, block cursors, a pixel helmet), not from colour. One amber, used sparingly, is the only hue on the page.\n\nDensity is calm and tabular. Information is laid out as label…value rows separated by hairlines, in two columns split down the middle of a 1000-unit card. Everything people read is set in Barlow; Press Start 2P appears only where a game would put its UI chrome, the handle and the section headings.\n\nEvery card is a fixed-width SVG generated by script, with every word converted to outlines, and each ships as a light and a dark variant swapped by `<picture>` and `prefers-color-scheme`. The system is defined by two parallel themes with identical roles, not by a single palette.",
+    "keyCharacteristics": [
+      "Neutral panels matched to GitHub light and dark; one amber accent per theme.",
+      "1.5px hairline card borders, 14px corners, no shadows.",
+      "Pixel type for handle and headings only; Barlow for all reading text.",
+      "Label…value rows with 1px hairline rules, values right-aligned.",
+      "Monochrome Simple Icons in the text colour.",
+      "Square amber block cursors as the game device; only the quest log's now-playing cursor blinks."
+    ],
+    "rules": [
+      {
+        "name": "The One Amber Rule",
+        "body": "Amber marks game chrome and progress only: headings, cursors, horns, filled segments, snake dots. Body text, values, icons and borders never take it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paired Theme Rule",
+        "body": "Every card ships as a light and a dark variant with identical layout; only the role colours swap. Never design a card for one theme alone.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Language Colours Rule",
+        "body": "Language bars and icons ignore GitHub's per-language and brand colours. Bars are amber on empty-slot; icons are text-coloured.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pixel Chrome Rule",
+        "body": "Press Start 2P is for the handle and section headings only. Anything a visitor reads for meaning is Barlow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Outlines Only Rule",
+        "body": "No live `<text>` and no web-font references. Every glyph is drawn to a path at build time so the SVG renders identically inside GitHub's image sandbox. Characters the face can't draw are dropped, and long strings are fitted with an ellipsis rather than overflowing.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Not Shadow Rule",
+        "body": "Depth is a tone step and a hairline. If a surface needs to read as separate, give it the card stroke; never a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** generate every card from the THEMES tokens in `scripts/build_assets.py`, in both light and dark, at 1000 units wide.",
+      "**Do** outline every glyph into paths and give each SVG a `<title>` and `aria-label` that states its facts.",
+      "**Do** lay data out as label…value rows with 1px hairline rules, values right-aligned to the column edge.",
+      "**Do** keep amber to headings, cursors, the helmet's horns, filled bar segments and the snake ramp.",
+      "**Do** draw icons from Simple Icons in the text colour.",
+      "**Do** honour `prefers-reduced-motion` on any animation."
+    ],
+    "donts": [
+      "**Don't** add a second accent hue or saturated fills; the user rejected the colourful arcade cabinet as hard to look at.",
+      "**Don't** use Press Start 2P for anything a visitor reads for meaning.",
+      "**Don't** add shadows, glows or gradients to cards.",
+      "**Don't** use GitHub language colours or brand-coloured icons.",
+      "**Don't** animate anything besides the quest log's now-playing cursor and the snake; the name-plate cursor stays static.",
+      "**Don't** reference live fonts or `<text>` elements in the SVGs."
+    ]
+  }
+}
