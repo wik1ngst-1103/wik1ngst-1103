@@ -1,4 +1,4 @@
-name: Generate contribution snake
+name: Build live cabinet assets
 
 on:
   schedule:
@@ -15,13 +15,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Generate snake SVGs
+      - uses: actions/checkout@v4
+
+      - name: Generate contribution snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=#ff00c8&color_dots=#161b22,#3b0a6b,#6a00f4,#b100e8,#00f7ff
+            dist/github-snake.svg?color_snake=#0E0F1A&color_dots=#E4E8F5,#9DB0EE,#2A52CC,#FFC93C,#E8452C
+            dist/github-snake-dark.svg?color_snake=#F6F1E6&color_dots=#161A33,#1C3FAA,#4C6FE0,#FFC93C,#E8452C
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate live stats screen
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install --quiet fonttools
+          python scripts/build_stats.py --user "${{ github.repository_owner }}" --out dist/stats.svg
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
