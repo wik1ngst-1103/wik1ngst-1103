@@ -38,11 +38,11 @@ CHARACTER = [
     ("SPAWN", "11 . 03 . 2001"),
     ("SIDE QUESTS", "Math · English"),
 ]
-LOADOUT = [  # icons, label, slot type
-    (["javascript", "typescript"], "JS · TS", "LANGUAGE"),
-    (["react", "nextdotjs"], "React · Next.js", "FRONTEND"),
-    (["nodedotjs"], "Node.js", "RUNTIME"),
-    (["rust"], "Rust", "LANGUAGE"),
+LOADOUT = [  # icons, label
+    (["javascript", "typescript"], "JavaScript · TypeScript"),
+    (["react", "nextdotjs"], "React · Next.js"),
+    (["nodedotjs"], "Node.js"),
+    (["rust"], "Rust"),
 ]
 
 # ── Themes: neutral surfaces, one amber accent ────────────────────────────
@@ -140,7 +140,7 @@ def card(w: int, h: int, t: dict) -> str:
 
 
 def heading(label: str, x: float, y: float, t: dict) -> str:
-    return text(pixel, label, 11, x, y, t["accent"], track=1)
+    return text(pixel, label, 16, x, y, t["accent"], track=1)
 
 
 def rule(x1: float, x2: float, y: float, t: dict) -> str:
@@ -179,54 +179,44 @@ STACK = "JavaScript, TypeScript, React, Node.js, Rust"
 
 def header(t: dict) -> str:
     H = 220
-    hw = pixel.width(HANDLE, 34, 2)
     inner = (
         card(W, H, t)
         + text(pixel, HANDLE, 34, 44, 96, t["text"], track=2)
-        + f'<rect class="cur" x="{fmt(44 + hw + 14)}" y="62" width="20" height="34" fill="{t["accent"]}"/>'
-        + text(strong, NAME, 22, 46, 146, t["text"])
-        + text(body, f"{ROLE}  ·  {STACK}", 16, 46, 180, t["muted"])
+        + f'<rect x="{fmt(44 + pixel.width(HANDLE, 34, 2) + 14)}" y="62" width="20" height="34" fill="{t["accent"]}"/>'
+        + text(strong, NAME, 24, 46, 146, t["text"])
+        + text(body, f"{ROLE}  ·  {STACK}", 17, 46, 182, t["muted"])
         + sprite(W - 44 - 16 * 7, (H - 13 * 7) / 2, 7, t)
     )
-    css = (
-        "@keyframes c{0%{opacity:1}50%{opacity:0}}.cur{animation:c 1.2s step-end infinite}"
-        "@media (prefers-reduced-motion:reduce){.cur{animation:none}}"
-    )
-    return svg(W, H, f"{HANDLE}: {NAME}, {ROLE.lower()} ({STACK})", inner, css)
+    return svg(W, H, f"{HANDLE}: {NAME}, {ROLE.lower()} ({STACK})", inner)
 
 
 def sheet(t: dict) -> str:
-    H = 310
-    parts = [card(W, H, t), heading("CHARACTER", 40, 56, t), heading("LOADOUT", 532, 56, t)]
-    parts.append(f'<path d="M500 36V{H-36}" stroke="{t["border"]}" stroke-width="1.5"/>')
-    for i, (k, v) in enumerate(CHARACTER):
-        y = 116 + i * 52
-        parts.append(text(body, k, 12, 40, y, t["muted"], track=2.5))
-        parts.append(text(strong, v, 19, 456, y, t["text"], "end"))
-        if i < len(CHARACTER) - 1:
-            parts.append(rule(40, 456, y + 22, t))
-    for i, (icons, label, kind) in enumerate(LOADOUT):
-        sx, sy = 532 + (i % 2) * 222, 84 + (i // 2) * 106
-        parts.append(f'<rect x="{sx}" y="{sy}" width="206" height="90" rx="10" fill="{t["slot"]}" stroke="{t["border"]}"/>')
+    H = 316
+    parts = [card(W, H, t), heading("CHARACTER", 40, 62, t), heading("LOADOUT", 540, 62, t)]
+    parts.append(f'<path d="M500 40V{H-40}" stroke="{t["border"]}" stroke-width="1.5"/>')
+    for i, ((k, v), (icons, label)) in enumerate(zip(CHARACTER, LOADOUT)):
+        y = 124 + i * 54
+        parts.append(text(body, k, 17, 40, y, t["muted"], track=1))
+        parts.append(text(strong, v, 20, 460, y, t["text"], "end"))
         for j, slug in enumerate(icons):
-            parts.append(icon(slug, sx + 18 + j * 32, sy + 16, 24, t["text"]))
-        parts.append(text(strong, strong.fit(label, 15, 172), 15, sx + 18, sy + 70, t["text"]))
-        parts.append(text(body, kind, 10, sx + 188, sy + 31, t["muted"], "end", 2))
+            parts.append(icon(slug, 540 + j * 34, y - 22, 24, t["text"]))
+        parts.append(text(strong, label, 20, 960, y, t["text"], "end"))
+        if i < len(CHARACTER) - 1:
+            parts.append(rule(40, 460, y + 22, t))
+            parts.append(rule(540, 960, y + 22, t))
     facts = "; ".join(f"{k.title()}: {v}" for k, v in CHARACTER)
-    gear = ", ".join(label for _, label, _ in LOADOUT)
+    gear = ", ".join(label for _, label in LOADOUT)
     return svg(W, H, f"Character: {facts}. Loadout: {gear}.", "".join(parts))
 
 
 def title_strip(label: str, t: dict) -> str:
-    return svg(W, 40, label.title(), heading(label, 4, 26, t))
+    return svg(W, 44, label.title(), heading(label, 40, 30, t))
 
 
 def link(slug: str, label: str, t: dict) -> str:
     w, h = 320, 96
-    cap = 22
-    if strong.width(label, cap) > w - 100:
-        cap *= (w - 100) / strong.width(label, cap)
-    inner = card(w, h, t) + icon(slug, 30, (h - 30) / 2, 30, t["text"]) + text(strong, label, cap, 80, h / 2 + cap / 2, t["text"])
+    cap = min(18, 18 * (w - 108) / strong.width(label, 18))
+    inner = card(w, h, t) + icon(slug, 34, (h - 28) / 2, 28, t["text"]) + text(strong, label, cap, 84, h / 2 + cap / 2, t["text"])
     return svg(w, h, label, inner)
 
 

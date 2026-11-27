@@ -17,7 +17,7 @@ import sys
 import urllib.request
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from build_assets import THEMES, W, body, card, heading, rule, strong, svg, text  # noqa: E402
+from build_assets import THEMES, W, body, card, fmt, heading, rule, strong, svg, text  # noqa: E402
 
 API = "https://api.github.com"
 PROFILE_REPO = "wik1ngst-1103"  # the README repo itself never counts as a quest
@@ -72,68 +72,82 @@ def plural(n: int, word: str) -> str:
     return f"{n} {word}{'' if n == 1 else 's'}"
 
 
-def stats(d: dict, t: dict) -> str:
-    H = 346
-    p = [card(W, H, t), heading("PLAYER STATS", 40, 56, t)]
-    counters = []
-    if d["year"]:
-        counters += [("COMMITS", d["year"]["commits"]), ("PULL REQUESTS", d["year"]["prs"]), ("ISSUES", d["year"]["issues"])]
-        p.append(text(body, "LAST 12 MONTHS", 10, 960, 55, t["muted"], "end", 2))
-    counters += [("REPOS", d["repos"]), ("STARS", d["stars"]), ("FOLLOWERS", d["followers"])]
-    col = 920 / len(counters)
-    for i, (label, value) in enumerate(counters):
-        x = 40 + i * col
-        p.append(text(strong, f"{value:,}", 30, x, 118, t["text"]))
-        p.append(text(body, label, 10, x + 1, 142, t["muted"], track=2))
+LANG_NAMES = {"Jupyter Notebook": "Jupyter"}
 
-    p.append(rule(40, 960, 172, t))
-    p.append(heading("TOP LANGUAGES", 40, 212, t))
+
+def stats(d: dict, t: dict) -> str:
+    H = 500
+    p = [card(W, H, t), heading("PLAYER STATS", 40, 62, t)]
+    columns = []
+    if d["year"]:
+        columns.append(("LAST 12 MONTHS", [("Commits", d["year"]["commits"]), ("Pull requests", d["year"]["prs"]), ("Issues", d["year"]["issues"])]))
+    columns.append(("ALL TIME", [("Public repos", d["repos"]), ("Stars earned", d["stars"]), ("Followers", d["followers"])]))
+    for c, (sub, rows) in enumerate(columns):
+        x0 = 40 + c * 500
+        p.append(text(body, sub, 17, x0, 112, t["muted"], track=1))
+        for i, (label, value) in enumerate(rows):
+            y = 162 + i * 46
+            p.append(text(body, label, 17, x0, y, t["text"]))
+            p.append(text(strong, f"{value:,}", 20, x0 + 420, y, t["text"], "end"))
+            if i < len(rows) - 1:
+                p.append(rule(x0, x0 + 420, y + 18, t))
+
+    p.append(rule(40, 960, 290, t))
+    p.append(heading("TOP LANGUAGES", 40, 340, t))
     total = sum(d["languages"].values()) or 1
     top = sorted(d["languages"].items(), key=lambda kv: -kv[1])[:6]
     segs = 20
     for i, (name, size) in enumerate(top):
-        x, y = 40 + (i % 2) * 480, 254 + (i // 2) * 34
+        x, y = 40 + (i % 2) * 500, 390 + (i // 2) * 40
         pct = 100 * size / total
         filled = max(1, round(segs * pct / 100 * 2))  # one segment = 2.5%
-        p.append(text(strong, strong.fit(name, 14, 130), 14, x, y, t["text"]))
+        p.append(text(strong, strong.fit(LANG_NAMES.get(name, name), 16, 120), 16, x, y, t["text"]))
         p.append("".join(
-            f'<rect x="{x + 148 + k * 11}" y="{y - 12}" width="8" height="12" rx="1" fill="{t["accent"] if k < filled else t["empty"]}"/>'
+            f'<rect x="{x + 136 + k * 11}" y="{y - 14}" width="8" height="14" rx="1" fill="{t["accent"] if k < filled else t["empty"]}"/>'
             for k in range(segs)
         ))
-        p.append(text(body, f"{pct:.0f}%", 13, x + 424, y, t["muted"], "end"))
+        p.append(text(body, f"{pct:.0f}%", 16, x + 420, y, t["muted"], "end"))
     if not top:
-        p.append(text(body, "No language data yet", 14, 40, 252, t["muted"]))
+        p.append(text(body, "No language data yet", 16, 40, 390, t["muted"]))
 
-    alt = ", ".join(f"{v} {k.lower()}" for k, v in counters) + ". Top languages: " + ", ".join(
-        f"{n} {100*s/total:.0f}%" for n, s in top)
-    return svg(W, H, f"Player stats: {alt}.", "".join(p))
+    facts = ", ".join(f"{label.lower()} {v}" for _, rows in columns for label, v in rows)
+    langs = ", ".join(f"{n} {100*s/total:.0f}%" for n, s in top)
+    return svg(W, H, f"Player stats: {facts}. Top languages: {langs}.", "".join(p))
 
 
 def quests(d: dict, t: dict) -> str:
     qs = d["quests"]
-    rows = qs[1:5]
-    H = (262 + 44 * len(rows) if rows else 196) if qs else 150
-    p = [card(W, H, t), heading("NOW PLAYING", 40, 56, t)]
+    p = [heading("QUEST LOG", 40, 62, t)]
     if not qs:
-        p.append(text(body, "No public quests yet", 16, 40, 104, t["muted"]))
-        return svg(W, H, "Now playing: no public repositories yet.", "".join(p))
+        H = 150
+        p.append(text(body, "No public quests yet", 17, 40, 112, t["muted"]))
+        return svg(W, H, "Quest log: no public repositories yet.", card(W, H, t) + "".join(p))
+    legend = "NOW PLAYING"
+    lw = body.width(legend, 17, 1)
+    p.append(f'<rect x="{fmt(960 - lw - 22)}" y="45" width="10" height="17" fill="{t["accent"]}"/>')
+    p.append(text(body, legend, 17, 960, 62, t["muted"], "end", 1))
+    y = 120
+    for i, q in enumerate(qs[:5]):
+        if i == 0:
+            p.append(f'<rect class="cur" x="40" y="{y - 19}" width="12" height="20" fill="{t["accent"]}"/>')
+        p.append(text(strong, strong.fit(q["name"], 19, 520), 19, 66, y, t["text"]))
+        p.append(text(body, body.fit(LANG_NAMES.get(q["language"], q["language"]), 16, 150), 16, 640, y, t["muted"]))
+        p.append(text(body, q["pushed"], 16, 960, y, t["muted"], "end"))
+        if i == 0 and q["description"]:
+            y += 30
+            p.append(text(body, body.fit(q["description"], 16, 894), 16, 66, y, t["muted"]))
+        if i < min(len(qs), 5) - 1:
+            p.append(rule(40, 960, y + 22, t))
+        y += 54
+    H = y - 54 + 44
+    css = (
+        "@keyframes c{0%{opacity:1}50%{opacity:0}}.cur{animation:c 1.2s step-end infinite}"
+        "@media (prefers-reduced-motion:reduce){.cur{animation:none}}"
+    )
     now = qs[0]
-    p.append(text(strong, strong.fit(now["name"], 24, 920), 24, 40, 104, t["text"]))
-    if now["description"]:
-        p.append(text(body, body.fit(now["description"], 16, 920), 16, 40, 136, t["muted"]))
-    meta = "  ·  ".join(x for x in (now["language"], plural(now["stars"], "star"), f"updated {now['pushed']}") if x)
-    p.append(text(body, meta, 13, 40, 164, t["muted"]))
-    if rows:
-        p.append(rule(40, 960, 190, t))
-        p.append(heading("QUEST LOG", 40, 226, t))
-        for i, q in enumerate(rows):
-            y = 270 + i * 44
-            p.append(text(strong, strong.fit(q["name"], 16, 470), 16, 40, y, t["text"]))
-            p.append(text(body, body.fit(q["language"], 14, 150), 14, 560, y, t["muted"]))
-            p.append(text(body, plural(q["stars"], "star"), 14, 760, y, t["muted"]))
-            p.append(text(body, q["pushed"], 14, 960, y, t["muted"], "end"))
-    alt = f"Now playing: {now['name']}. Quest log: " + ", ".join(q["name"] for q in rows)
-    return svg(W, H, alt, "".join(p))
+    alt = f"Quest log. Now playing: {now['name']}" + (f" ({now['description']})" if now["description"] else "")
+    alt += ". Recent: " + ", ".join(q["name"] for q in qs[1:5])
+    return svg(W, H, alt, card(W, H, t) + "".join(p), css)
 
 
 def main() -> None:
