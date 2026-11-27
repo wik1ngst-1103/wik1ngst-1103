@@ -1,4 +1,4 @@
-name: Build live cabinet assets
+name: Build live profile cards
 
 on:
   schedule:
@@ -15,26 +15,27 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      # Runs before snk: the snk container writes dist/ as root, so Python goes first.
+      - name: Build stats and quest cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install --quiet fonttools
+          python scripts/build_live.py --user "${{ github.repository_owner }}" --out dist
 
       - name: Generate contribution snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg?color_snake=#0E0F1A&color_dots=#E4E8F5,#9DB0EE,#2A52CC,#FFC93C,#E8452C
-            dist/github-snake-dark.svg?color_snake=#F6F1E6&color_dots=#161A33,#1C3FAA,#4C6FE0,#FFC93C,#E8452C
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Generate live stats screen
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pip install --quiet fonttools
-          python scripts/build_stats.py --user "${{ github.repository_owner }}" --out dist/stats.svg
+            dist/github-snake.svg?color_snake=#1F2328&color_dots=#EBEEF1,#F2E3B8,#E3C26B,#BF8700,#9A6700
+            dist/github-snake-dark.svg?color_snake=#E6EDF3&color_dots=#161B22,#3A3220,#6B5A2A,#B08A2E,#E3B341
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4

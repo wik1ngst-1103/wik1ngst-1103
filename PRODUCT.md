@@ -22,12 +22,12 @@ A personal profile drawn from his own world (games, JavaScript, the `wik1ngst` h
 - Third-party widget endpoints (vercel stats, trophies) can go down or hit rate limits. In Nov 2026 the trophy endpoint was rendering as a broken image.
 
 ## Capabilities and Constraints
-- He now works as a developer. His exact role and stack beyond JavaScript are **unconfirmed**; don't invent specifics.
+- He now works as a developer. Confirmed stack to show: JavaScript/TypeScript, React/Next.js, Node.js, Rust. Exact role and employer are unconfirmed; don't invent specifics.
 - `.github/workflows/snake.yml` generates the contribution snake on the `output` branch (Platane/snk).
 
 ## Brand Commitments
 - Name: Le Thanh Son. Handle: wik1ngst. GitHub account: wik1ngst-1103.
-- Modern gaming style, as he asked.
+- Modern gaming style, as he asked, but restrained: on 2026-11-27 he rejected the saturated arcade cabinet as too colourful and hard to look at. Keep colour quiet.
 - Keep: birthday 11/03/2001, Facebook (facebook.com/lethanhson.wist0514), Buy Me a Coffee (buymeacoffee.com/thanhson0514).
 - Old copy was English; keep English.
 

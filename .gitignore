@@ -1,2 +1,4 @@
 scripts/.fonts/
 .venv/
+__pycache__/
+scripts/.icons/
